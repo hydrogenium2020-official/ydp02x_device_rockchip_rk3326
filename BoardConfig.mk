@@ -1,1 +1,1 @@
-BoardConfig-rk3326-evb-lp3-v10.mk
+BoardConfig-rk3326-youdao-ydp02x.mk
