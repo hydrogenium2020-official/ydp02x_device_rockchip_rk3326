@@ -24,7 +24,7 @@ Archlinux 2023.07 Plasma 5.27.6,linux-zen 6.4.2
 
 - 常用的
 
-​	[4.4内核 Fork from rockchip](https://github.com/hydrogenium2020-offical/ydp02x_u-boot) DTB文件尚不完善,触摸，屏幕，GPIO按键不可用
+​	[4.4内核 Fork from rockchip](https://github.com/hydrogenium2020-offical/ydp02x_kernel-4.4) DTB文件尚不完善,触摸，屏幕，GPIO按键不可用
 
 [	u-boot Fork from firefly-linux](https://github.com/hydrogenium2020-offical/ydp02x_u-boot) U-Boot测试没啥Bug，进loader,maskrom没啥问题
 
