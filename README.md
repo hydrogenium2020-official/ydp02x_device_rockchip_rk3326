@@ -16,13 +16,13 @@
 ### 环境
 Archlinux 2023.07 Plasma 5.27.6,linux-zen 6.4.2
 
-笔是 **二代 YDP021**
+笔是 **有道词典笔二代 YDP021**
 
 编译依赖就不写了，建议用ubuntu or debian编译,否则你会被buildroot给折腾死，各种因为软件过新造成的Error
 
 ### 可用到的资源 Source (Thanks!)
 
-- 常用的
+- 常用的(SDK Mirror1和2不同)
 
 ​	[4.4内核 Fork from rockchip](https://github.com/hydrogenium2020-offical/ydp02x_kernel-4.4) DTB文件尚不完善,触摸，屏幕，GPIO按键不可用
 
@@ -33,6 +33,12 @@ Archlinux 2023.07 Plasma 5.27.6,linux-zen 6.4.2
 ​	[刷机工具,PX30芯片的SDK等等 From Firefly](https://wiki.t-firefly.com/zh_CN/Core-PX30-JD4/)
 
 ​	[Firefly Gitlab](https://gitlab.com/firefly-linux)
+
+​	[rockchip doc](https://github.com/Caesar-github/docs)
+
+​	[SDK Mirror1](https://github.com/JeffyCN/rockchip_mirrors)
+
+   [SDK Mirror2](https://github.com/JeffyCN/rockchip_mirrors)
 
 - 一些触摸Driver(上面的内核并没有带触摸驱动)
 
@@ -50,11 +56,29 @@ Archlinux 2023.07 Plasma 5.27.6,linux-zen 6.4.2
 
 - [rkbin](https://github.com/rockchip-linux/rkbin) 瑞芯微提供的**一些有用的工具**，例如刷写固件的`upgrade_tool`
 
+- 大佬的github账户
+
+  https://github.com/Caesar-github
+
+  https://github.com/JeffyCN
+
+### rk官方内核点屏测试
+
+chekoutf 069c44f227549e7d7180daa4f12de734cbf3d8a
+
+- [6f10f7d80b3389badc5d626efffac49292f3ca71](https://github.com/hydrogenium2020-offical/ydp02x_kernel-4.4/commit/6f10f7d80b3389badc5d626efffac49292f3ca71)commit，该commit后移除了Mali Bifrost for linux驱动，似乎需要修改dtb，且需要更新[buildroot](https://github.com/JeffyCN/rockchip_mirrors)
+
+​		同时需要打开CONFIG_MALI_BIFROST_FOR_LINUX=y
+
+​		可以显示，但是显示图像异常，轮廓对了，但是颜色，宽度不对
+
+- 猜测：时序，驱动不对？
+
 ### 现在测试能运行的系统/固件
 
-- buildroot Firefly官方 `PX30-LVDS-BUILDROOT-GPT-20201106-1336.img.7z` 
+- buildroot 2018.x Firefly官方 `PX30-LVDS-BUILDROOT-GPT-20201106-1336.img.7z` 
 
-  - 能运行✅
+  - 启动✅
   - 需要替换成官方的boot.img (使用`imgrepackerrk` `rkbin/tools/upgrade_tool`  unpack_bootimg等等)
 
   - 需自行编译并替换uboot.img,trust.img
@@ -67,11 +91,17 @@ Archlinux 2023.07 Plasma 5.27.6,linux-zen 6.4.2
 
     - bug:
 
-      触摸动不了（可能是rk给的launcher不兼容这么小的屏幕尺寸）
+      ~~触摸动不了（可能是rk给的launcher不兼容这么小的屏幕尺寸）~~
 
       adb,mtp挂载不了
 
       ...
+
+
+- Buildroot 2020.x 瑞芯微官方
+  - 启动✅
+  - [repo](https://github.com/JeffyCN/rockchip_mirrors)
+  - 编译通过
 
 - Ubuntu Firefly
   - 启动❎

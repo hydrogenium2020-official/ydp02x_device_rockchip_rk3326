@@ -77,7 +77,19 @@
 
   - kernel linux内核 ,kernel firefly自带的无法启动，会报arm trust firmware EL3错误，需使用瑞芯微官方源https://github.com/rockchip-linux/kernel `develop-4.4`分支
 
-### Buildroot Fix Build Error (仍未编译出来，放弃了)
+## 官方 buildroot 测试编译通过
+
+- firefly给的太旧了,只是在buildroot 2018的版本上修修补补
+
+[buildroot](https://github.com/JeffyCN/rockchip_mirrors)
+
+记得更新external/libmali,rkbtwifi,linux-rga,rkscript...等等一堆东西
+
+2023.07.30 测试编译成功，可运行，可正常引导，其他未知
+
+#### 
+
+### Firefly Buildroot Fix Build Error (仍未编译出来，放弃了)
 
 #### 编译buildroot
 
